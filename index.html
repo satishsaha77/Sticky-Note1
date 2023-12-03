@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sticky Note</title>
+    <link rel="website icon" type="png" href="sticky-notes.webp">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <div class="head"><button id="add-note"><i class="far fa-plus-square"></i>Add Note</button></div>
+            <div class="inner-container" id="note-bx">
+                <!-- <div class="note">
+                    <div class="tool">
+                        <i class="fas fa-save"></i>
+                        <i class="fas fa-trash"></i>
+                    </div>
+                    <textarea></textarea>
+                </div> -->
+            </div>
+        </div>
+    </div>
+    <div id="overlay"></div>
+    <div id="remove-confirm">
+        <p>Are You Sure ? Do You Want To Delete Note?</p>
+        <div>
+            <button id="yes" >Yes</button>
+            <button id="no">No</button>
+        </div>
+    </div>
+    <div class="save-true" id="save-true"><span>Note Saved</span></div>
+    <script src="https://kit.fontawesome.com/cf5b11d1a8.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+</html>

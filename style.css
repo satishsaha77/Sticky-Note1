@@ -1,0 +1,196 @@
+/* Apply box-sizing to all elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Styling for the add-note button */
+#add-note {
+    position: fixed;
+    right: 10px;
+    top: 10px;
+    background-color: #056985;
+    color: white;
+    padding: 10px 25px;
+    border: 0;
+    outline: 0;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .2s ease-in-out;
+}
+
+#add-note .far {
+    margin-right: 10px;
+}
+
+/* Styling for the main container */
+.container {
+    position: relative;
+    min-height: 100vh;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* Styling for the background image blur effect */
+.container::before {
+    content: "";
+    position: absolute;
+    background: url("background.png");
+    filter: blur(10px);
+    width: 100%;
+    min-height: 100vh;
+    height: 100%;
+}
+
+/* Styling for the content section */
+.content {
+    position: relative;
+}
+
+/* Hover effect for the add-note button */
+#add-note:hover {
+    transform: scale(1.1);
+}
+
+/* Styling for the inner container and individual notes */
+.container .inner-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.container .inner-container .note {
+    width: 340px;
+    height: 340px;
+    margin: 15px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 10px black;
+}
+
+/* Styling for the tool section within each note */
+.container .inner-container .note .tool {
+    height: 10%;
+    width: 100%;
+    background-color: #2d3436;
+    color: white;
+    padding: 7px;
+    display: flex;
+    justify-content: flex-end; /* Fix: justify-content should be flex-end */
+    padding-right: 10px;
+}
+
+.container .inner-container .note .tool i {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+/* Styling for the textarea within each note */
+.container .inner-container .note textarea {
+    border: none;
+    outline: none;
+    width: 100%;
+    height: 90%;
+    resize: none;
+    padding: 10px;
+    font-size: 18px;
+    
+    /* Add scrollbar styling */
+    overflow-y: scroll; /* Add a scrollbar only when the content overflows */
+    scrollbar-width: thin;
+    scrollbar-color: #888 #f1f1f1;
+}
+
+/* For Webkit browsers (Chrome, Safari) */
+.container .inner-container .note textarea::-webkit-scrollbar {
+    width: 10px;
+}
+
+.container .inner-container .note textarea::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+
+.container .inner-container .note textarea::-webkit-scrollbar-thumb {
+    background: #888; 
+    border-radius: 20px;
+}
+
+.container .inner-container .note textarea::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+
+/* Remove border and outline when textarea is focused */
+.container .inner-container .note textarea:focus {
+    border: none;
+    outline: none;
+}
+
+/* Styling for the success message */
+.save-true {
+    visibility: hidden;
+    position: absolute;
+    z-index: 99;
+    background-color: green;
+    width: 200px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 50%;
+    border-radius: 20px 20px 0 0;
+    transform: translateX(-50%);
+    bottom: 0;
+    color: white;
+    font-weight: 600;
+}
+
+/* Styling for the confirmation dialog */
+#remove-confirm {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 350px;
+    background-color: red;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    color: white;
+    display: none;
+    font-size: 16px;
+    font-weight: 600;
+    top: 50%;
+    border-radius: 20px;
+    z-index: 9999;
+    padding: 20px;
+    transition: .2s ease-in-out;
+}
+
+#remove-confirm button {
+    padding: 10px 25px;
+    margin: 20px 5px 5px 0;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: .2s ease-in-out;
+}
+
+/* Hover effect for the confirmation dialog buttons */
+#remove-confirm button:hover {
+    transform: scale(1.1);
+}
+
+/* Overlay for the confirmation dialog */
+#overlay {
+    width: 100vw;
+    min-height: 100vh;
+    height: 100%;
+    display: none;
+    position: absolute;
+    top: 0;
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.564);
+}
